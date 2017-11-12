@@ -18,8 +18,6 @@ var demands = [
 ]
 
 /******************************sum of worst distance just for test***********/
-//test
-
 var sum_of_worst_distances = 0;
 var worst_distance_for_one_demand = -1; //for compare
 console.log("initial:" + worst_distance_for_one_demand + "\n")
