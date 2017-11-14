@@ -17,80 +17,47 @@ var demands = [
     { x: 1, y: 5, c: 50 },
 ]
 
-/******************************sum of worst distance just for test***********/
-var sum_of_worst_distances = 0;
-var worst_distance_for_one_demand = -1; //for compare
-console.log("initial:" + worst_distance_for_one_demand + "\n")
-var array = array();
-for (i = 0; i < 2; i++) {
-    for (j = 0; j < medians.length; j++) {
-        var distance = Math.sqrt((Math.pow(demands[i].x - medians[j].x, 2)) + (Math.pow(demands[i].y - medians[j].y, 2)))
-        if (distance > worst_distance_for_one_demand) {
-            worst_distance_for_one_demand = distance;
-            console.log("distance of demand " + i + " and median " + j + " :" + worst_distance_for_one_demand + "\n")
-            array[i] = worst_distance_for_one_demand;
-        } else
-            console.log("distance of demand " + i + " and median " + j + " :" + worst_distance_for_one_demand + "\n")
-    }
-    sum_of_worst_distances += worst_distance_for_one_demand;
-}
-console.log(array.join())
-
-
-/***************************************************************************/
-
-//generating new chromosome
-var chromosome = []
-for (var i = 0; i < demands.length; i++)
-    chromosome[i] = parseInt(Math.random() * medians.length)
-
-var calculate_fitness_article = (chromosome, demands, medians) => {
-    var worse_distance = calculate_worst_distance(medians, demands);
-    // var some_of_distances = calculate_sum_of_distances(chromosome, demands, medians);
-    //n = needs
-    //mc = min cost
-    // retrun((worse_distance - some_of_distances) / worse_distance) * ((n - mc) / n);
-
-
+var sum_of_distance = (chromosome, medians, demands) => {
+  var sum = 0
+  for(var i=0; i<chromosome.length; i++){
+    var demand = demands[i]
+    var median = medians[chromosome[i]]
+    var current_dst = Math.pow(demand.x - median.x, 2) + Math.pow(demand.y - median.y, 2)
+    sum += current_dst
+  }
+  return sum
 }
 
-var calculate_sum_of_distances = (chromosome, demands, medians) => {
-
-    var sum = 0;
-    var points = [];
-    for (i = 0; i < chromosome.length; i++) {
-        var demand = demands[i]
-        var median = medians[chromosome[i]]
-        sum += Math.sqrt(Math.pow(demand.x - median.x, 2) + Math.pow(demand.y - median.y, 2))
-    }
-    return sum;
+var worst_distance = (medians, demands) => {
+  var worst = 0
+  for(var i=0; i<demands.length; i++){
+    var demand = demands[i]
+    var worst_dst_for_current_demand = the_furthest_median(demand, medians)
+    worst += worst_dst_for_current_demand
+  }
+  return worst
 }
 
-var calculate_worst_distance = (medians, demands) => {
-    var sum_of_worst_distances = 0;
-    var worst_distance = -1; //for compare
-    console.log("initial:" + worst_distance + "\n")
-    for (i = 0; i < demands.length; i++) {
-        for (j = 0; j < medians.length; j++) {
-            var distance = Math.sqrt(Math.pow(demands[i].x - medians[j].x, 2) + Math.pow(demands[i].y - medians[j].y, 2))
-            console.log("before compare:" + worst_distance + "\n")
-            if (distance > worst_distance) {
-                worst_distance = distance;
-                console.log("new :" + worst_distance + "\n")
-            }
-        }
-    }
+var the_furthest_median = (point, medians) => {
+  var worst_dst = 0
+  for(var i=0; i<medians.length; i++)
+    if(Math.pow(point.x - median.x, 2) + Math.pow(point.y - median.y, 2) > worst_distance)
+      worst_distance = Math.pow(point.x - median.x, 2) + Math.pow(point.y - median.y, 2)
+  return worst_distance
 }
 
+var min_cap_median = (medians) => {
+  var min_cap = 999999999
+  for(var i=0; i<medians.length; i++)
+    if(min_cap > medians[i].c)
+      min_cap = medians[i].c
+  return min_cap
+}
 
-// var calculate_fitness_custom = (chromosome) => {
-//         //worse_distance = worse distance
-//         //some_of_distances = sum of distances 
-//         //n = needs
-//         //mc = min cost
-//         retrun((alpha * ((worse_distance - some_of_distances) / worse_distance)) + (beta * ((n - mc) / n))) / 2;
+var total_needs = (demands) => {
+  var total = 0
+  for(var i=0; i<demands.length; i++)
+    total += demands.c
+}
 
-//     }
-// module.exports = {
-//     calculate_fitness
-// }
+var the_greatest_lack = (demands, medians) => total_needs(demands) - min_cap_median(medians)
