@@ -1,20 +1,20 @@
 var log_informations = (medians, demands) => {
   var total_capacities = 0
-  console.log(`medians: ${medians.length}:`)
+  // console.log(`medians: ${medians.length}:`)
   for(var i=0; i<medians.length; i++){
-    console.log(`${i}: loc(${medians[i].x},${medians[i].y}) => c(${medians[i].c})`)
+    // console.log(`${i}: loc(${medians[i].x},${medians[i].y}) => c(${medians[i].c})`)
     total_capacities += medians[i].c
   }
-  console.log(`total capacities: ${total_capacities}`)
+  // console.log(`total capacities: ${total_capacities}`)
   
-  console.log('============================================')
+  // console.log('============================================')
   var total_needs = 0
-  console.log(`demands: ${demands.length}:`)
+  // console.log(`demands: ${demands.length}:`)
   for(var i=0; i<demands.length; i++){
-    console.log(`${i}: loc(${demands[i].x},${demands[i].y}) => c(${demands[i].c})`)
+    // console.log(`${i}: loc(${demands[i].x},${demands[i].y}) => c(${demands[i].c})`)
     total_needs += demands[i].c
   }
-  console.log(`total capacities: ${total_needs}`)
+  // console.log(`total capacities: ${total_needs}`)
 }
 
 var generate_random_chromosome = (p, n) => {
@@ -30,7 +30,7 @@ var is_the_chromosome_valid = (chromosome, medians, demands) => {
     needs[i] = 0
   for(var i=0; i<chromosome.length; i++)
     needs[chromosome[i]] += demands[i].c
-  console.log(needs)
+  // console.log(needs)
   for(var i=0; i<needs.length; i++)
     if(needs[i] > medians[i].c)
       return false
