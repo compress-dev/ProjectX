@@ -7,6 +7,7 @@ module.exports = {
       mp: 0.6,
       max_itr: 20,
       ga_result: 5819,
+      ade_result: 5816,
       opt_result: 5819,
     },
     {
@@ -16,6 +17,7 @@ module.exports = {
       mp: 0.6,
       max_itr: 50,
       ga_result: 4093,
+      ade_result: 4091,
       opt_result: 4093,
     },
     {
@@ -25,6 +27,7 @@ module.exports = {
       mp: 0.3,
       max_itr: 20,
       ga_result: 4250,
+      ade_result: 4246,
       opt_result: 4250,
     },
     {
@@ -34,6 +37,7 @@ module.exports = {
       mp: 0.6,
       max_itr: 50,
       ga_result: 3034,
+      ade_result: 3027,
       opt_result: 3034,
     },
     {
@@ -43,6 +47,7 @@ module.exports = {
       mp: 0.3,
       max_itr: 150,
       ga_result: 1355,
+      ade_result: 1348,
       opt_result: 1355,
     },
     {
@@ -52,6 +57,7 @@ module.exports = {
       mp: 0.6,
       max_itr: 50,
       ga_result: 7824,
+      ade_result: 7824,
       opt_result: 7824,
     },
     {
@@ -61,6 +67,7 @@ module.exports = {
       mp: 0.3,
       max_itr: 50,
       ga_result: 5631,
+      ade_result: 5631,
       opt_result: 5631,
     },
     {
@@ -70,6 +77,7 @@ module.exports = {
       mp: 0.6,
       max_itr: 100,
       ga_result: 4445,
+      ade_result: 4445,
       opt_result: 445,
     },
     {
@@ -79,6 +87,7 @@ module.exports = {
       mp: 0.3,
       max_itr: 150,
       ga_result: 2734,
+      ade_result: 2732,
       opt_result: 2734,
     },
     {
@@ -88,6 +97,7 @@ module.exports = {
       mp: 0.3,
       max_itr: 150,
       ga_result: 1255,
+      ade_result: 1245,
       opt_result: 1255,
     },
     {
@@ -97,6 +107,7 @@ module.exports = {
       mp: 0.6,
       max_itr: 150,
       ga_result: 7696,
+      ade_result: 7682,
       opt_result: 7696,
     },
     {
@@ -106,6 +117,7 @@ module.exports = {
       mp: 0.6,
       max_itr: 150,
       ga_result: 6634,
+      ade_result: 6620,
       opt_result: 6634,
     },
     {
@@ -115,6 +127,7 @@ module.exports = {
       mp: 0.6,
       max_itr: 150,
       ga_result: 4374,
+      ade_result: 4373,
       opt_result: 4374,
     },
     {
@@ -124,6 +137,7 @@ module.exports = {
       mp: 0.1,
       max_itr: 250,
       ga_result: 2968,
+      ade_result: 2956,
       opt_result: 2968,
     },
     {
@@ -133,6 +147,7 @@ module.exports = {
       mp: 0.3,
       max_itr: 250,
       ga_result: 1729,
+      ade_result: 1727,
       opt_result: 1731,
     }
   ]

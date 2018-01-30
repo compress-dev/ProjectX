@@ -42,12 +42,15 @@ var generate_matrix = (input) => {
   }
   return matrix
 }
+
 var handle_test_case = (test_case) => {
   test_input = get_file(test_case)
   matrix = generate_matrix(test_input)
   console.log(`node count: ${test_input.node_count}`)
   console.log(`edge count: ${test_input.edge_count}`)
   console.log(`p count: ${test_input.p}`)
+  var res = metrics.open_problem(test_input, test_case)
+  console.log(`Our result was: ${res.b.result}`)
 }
 
 for(var i=0; i<tests.length; i++){
@@ -61,5 +64,5 @@ for(var i=0; i<tests.length; i++){
   console.log(`the GA paper result is ${test_case.ga_result}`)
   handle_test_case(test_case)
   console.log("======================================")
-  break
+  // break
 }
